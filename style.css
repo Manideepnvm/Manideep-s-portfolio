@@ -1326,9 +1326,9 @@ textarea.form-input {
 @media (min-width: 1024px) {
 
     :root {
-        --shadow1: -4px 8px 24px hsla(0, 0%, 0%, .125);
-        --shadow2: 0px 16px 30px hsla(0, 0%, 0%, .125);
-        --shadow3: 0px 16px 40px hsla(0, 0%, 0%, .125);
+        --shadow1: -4px 8px 24px hsla(1, 1%, 1%, .125);
+        --shadow2: 0px 16px 30px hsla(1, 1%, 1%, .125);
+        --shadow3: 0px 16px 40px hsla(1, 1%, 1%, .125);
     }
 
     .sidebar, article {
