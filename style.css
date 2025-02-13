@@ -1002,9 +1002,9 @@ article { display: none; }
         .form-input:focus:invalid { border-color: var(--bittersweet-shimmer); }
 
 textarea.form-input {
-    min-height: 100px;
-    height: 120px;
-    max-height: 200px;
+    min-height: 99px;
+    height: 119px;
+    max-height: 199px;
     resize: vertical;
     margin-bottom: 25px;
 }
