@@ -629,34 +629,27 @@ section {
     background: var(--dark-surface);
 }
 
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-3xl);
-    align-items: center;
-}
-
-.about-text h2 {
-    font-size: var(--font-size-3xl);
-    margin-bottom: var(--spacing-lg);
-    color: var(--primary-blue);
-}
-
-.about-text p {
-    font-size: var(--font-size-lg);
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-xl);
-}
-
-.about-image {
+.about-text-centered {
+    max-width: 800px;
+    margin: 0 auto;
     text-align: center;
 }
 
-.profile-image {
-    width: 100%;
-    max-width: 400px;
-    border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-2xl);
+.about-text-centered h2 {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--spacing-xl);
+    color: var(--primary-blue);
+}
+
+.about-text-centered p {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.8;
+}
+
+.about-text-centered .about-stats {
+    margin-top: var(--spacing-3xl);
 }
 
 /* Services */
@@ -1320,8 +1313,9 @@ section {
         grid-template-columns: 1fr;
     }
     
-    .about-grid {
-        grid-template-columns: 1fr;
+    .about-text-centered {
+        max-width: 100%;
+        padding: 0 var(--spacing-md);
     }
     
     .about-stats {
