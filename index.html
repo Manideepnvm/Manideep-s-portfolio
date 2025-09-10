@@ -21,42 +21,80 @@
                 <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" title="Toggle Theme">
+                    <ion-icon name="moon-outline" class="theme-icon"></ion-icon>
+                </button>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
         </div>
     </nav>
 
+    <!-- Floating Action Button -->
+    <div class="fab-container">
+        <button class="fab" id="fab-contact" title="Quick Contact">
+            <ion-icon name="mail-outline"></ion-icon>
+        </button>
+        <div class="fab-tooltip">Get in Touch</div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar" id="scroll-progress"></div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
+        <div class="particles-container" id="particles-js"></div>
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-text">
                     <h1 class="hero-title">
-                        Hi, I'm <span class="highlight">Manideep Narnavaram</span>
+                        Hi, I'm <span class="highlight typing-text">Manideep Narnavaram</span>
                     </h1>
-                    <h2 class="hero-subtitle">Full-Stack Developer</h2>
+                    <h2 class="hero-subtitle">
+                        <span class="role-text" data-roles='["Full-Stack Developer", "UI/UX Designer", "Problem Solver", "Tech Enthusiast"]'>Full-Stack Developer</span>
+                    </h2>
                     <p class="hero-description">
                         Passionate Computer Science student creating innovative web solutions with modern technologies. 
                         Transforming ideas into elegant, functional digital experiences.
                     </p>
                     <div class="hero-buttons">
-                        <a href="projects.html" class="btn btn-primary">View My Work</a>
-                        <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+                        <a href="projects.html" class="btn btn-primary">
+                            <span>View My Work</span>
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary">
+                            <span>Get In Touch</span>
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </a>
                     </div>
                 </div>
                 <div class="hero-image">
                     <div class="image-container">
-                        <img src="./img/itsme.jpg" alt="Manideep Narnavaram" class="profile-img">
+                        <div class="profile-card">
+                            <img src="./img/itsme.jpg" alt="Manideep Narnavaram" class="profile-img">
+                            <div class="profile-glow"></div>
+                        </div>
                         <div class="floating-elements">
-                            <div class="floating-icon">💻</div>
-                            <div class="floating-icon">⚡</div>
-                            <div class="floating-icon">🚀</div>
+                            <div class="floating-icon" data-icon="💻">💻</div>
+                            <div class="floating-icon" data-icon="⚡">⚡</div>
+                            <div class="floating-icon" data-icon="🚀">🚀</div>
+                            <div class="floating-icon" data-icon="🎯">🎯</div>
+                            <div class="floating-icon" data-icon="✨">✨</div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-text">Scroll Down</div>
+            <div class="scroll-arrow">
+                <ion-icon name="chevron-down-outline"></ion-icon>
             </div>
         </div>
     </section>
@@ -231,6 +269,7 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="main.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

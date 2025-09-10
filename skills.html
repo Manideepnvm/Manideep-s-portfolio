@@ -21,13 +21,31 @@
                 <li class="nav-item"><a href="projects.html" class="nav-link">Projects</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" title="Toggle Theme">
+                    <ion-icon name="moon-outline" class="theme-icon"></ion-icon>
+                </button>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
             </div>
         </div>
     </nav>
+
+    <!-- Floating Action Button -->
+    <div class="fab-container">
+        <button class="fab" id="fab-contact" title="Quick Contact">
+            <ion-icon name="mail-outline"></ion-icon>
+        </button>
+        <div class="fab-tooltip">Get in Touch</div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar" id="scroll-progress"></div>
+    </div>
 
     <!-- Page Header -->
     <section class="page-header">

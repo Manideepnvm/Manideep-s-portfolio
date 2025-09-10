@@ -26,6 +26,207 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Theme Toggle Functionality
+    function initThemeToggle() {
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle?.querySelector('.theme-icon');
+        
+        if (!themeToggle || !themeIcon) return;
+
+        // Check for saved theme preference or default to dark
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        // Update icon based on current theme
+        updateThemeIcon(themeIcon, currentTheme);
+
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(themeIcon, newTheme);
+        });
+    }
+
+    function updateThemeIcon(icon, theme) {
+        icon.name = theme === 'dark' ? 'sunny-outline' : 'moon-outline';
+    }
+
+    // Floating Action Button
+    function initFAB() {
+        const fab = document.getElementById('fab-contact');
+        if (!fab) return;
+
+        fab.addEventListener('click', function() {
+            // Scroll to contact section or open contact modal
+            const contactSection = document.querySelector('.contact-content, .contact-cta');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                // Redirect to contact page if not on current page
+                window.location.href = 'contact.html';
+            }
+        });
+    }
+
+    // Scroll Progress Indicator
+    function initScrollProgress() {
+        const progressBar = document.getElementById('scroll-progress');
+        if (!progressBar) return;
+
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        });
+    }
+
+    // Particles.js Configuration
+    function initParticles() {
+        if (typeof particlesJS !== 'undefined') {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: '#3b82f6' },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.5, random: false },
+                    size: { value: 3, random: true },
+                    line_linked: { enable: true, distance: 150, color: '#3b82f6', opacity: 0.4, width: 1 },
+                    move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
+                    modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } }
+                },
+                retina_detect: true
+            });
+        }
+    }
+
+    // Enhanced Typing Animation
+    function initTypingAnimation() {
+        const roleElement = document.querySelector('.role-text');
+        if (!roleElement) return;
+
+        const roles = JSON.parse(roleElement.getAttribute('data-roles') || '["Full-Stack Developer"]');
+        let currentRoleIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+
+        function typeRole() {
+            const currentRole = roles[currentRoleIndex];
+            
+            if (isDeleting) {
+                roleElement.textContent = currentRole.substring(0, currentCharIndex - 1);
+                currentCharIndex--;
+            } else {
+                roleElement.textContent = currentRole.substring(0, currentCharIndex + 1);
+                currentCharIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && currentCharIndex === currentRole.length) {
+                typeSpeed = 2000; // Pause at end
+                isDeleting = true;
+            } else if (isDeleting && currentCharIndex === 0) {
+                isDeleting = false;
+                currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+                typeSpeed = 500; // Pause before next role
+            }
+
+            setTimeout(typeRole, typeSpeed);
+        }
+
+        typeRole();
+    }
+
+    // Enhanced Counter Animation
+    function initCounterAnimation() {
+        const counters = document.querySelectorAll('.stat h4, .counter');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.textContent.replace(/\D/g, ''));
+                    const suffix = counter.textContent.replace(/\d/g, '');
+                    
+                    animateCounter(counter, 0, target, suffix, 2000);
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => observer.observe(counter));
+    }
+
+    function animateCounter(element, start, end, suffix, duration) {
+        const startTime = performance.now();
+        
+        function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const current = Math.floor(start + (end - start) * easeOutCubic(progress));
+            
+            element.textContent = current + suffix;
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            }
+        }
+        
+        requestAnimationFrame(updateCounter);
+    }
+
+    function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+    }
+
+    // Enhanced Floating Icons Interaction
+    function initFloatingIcons() {
+        const floatingIcons = document.querySelectorAll('.floating-icon');
+        
+        floatingIcons.forEach(icon => {
+            icon.addEventListener('click', function() {
+                // Add click animation
+                this.style.transform = 'scale(1.5) rotate(360deg)';
+                this.style.filter = 'drop-shadow(0 0 20px var(--primary-blue))';
+                
+                setTimeout(() => {
+                    this.style.transform = '';
+                    this.style.filter = '';
+                }, 600);
+            });
+
+            // Add hover sound effect (visual feedback)
+            icon.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.2)';
+            });
+
+            icon.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+            });
+        });
+    }
+
+    // Smooth scroll for scroll indicator
+    function initScrollIndicator() {
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        if (!scrollIndicator) return;
+
+        scrollIndicator.addEventListener('click', function() {
+            const nextSection = document.querySelector('.quick-about, .about-content, .skills-content, .projects-grid');
+            if (nextSection) {
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+
     // Skills animation
     function animateSkills() {
         const skillBars = document.querySelectorAll('.skill-progress');
@@ -225,14 +426,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize all functionality
     function init() {
+        // Core functionality
         animateSkills();
         initProjectFilter();
         initContactForm();
         initFAQ();
         initScrollAnimations();
-        initTypingAnimation();
-        initParallaxEffect();
         initSmoothScrolling();
+        
+        // New enhanced features
+        initThemeToggle();
+        initFAB();
+        initScrollProgress();
+        initParticles();
+        initTypingAnimation();
+        initCounterAnimation();
+        initFloatingIcons();
+        initScrollIndicator();
+        initParallaxEffect();
     }
 
     // Run initialization
