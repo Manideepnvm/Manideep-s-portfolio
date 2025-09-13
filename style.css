@@ -1,33 +1,33 @@
-/* Modern Portfolio CSS - Dark Blue-Black Theme */
+/* Modern Portfolio CSS - Ultra Dark Black-Blue Theme */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+/* Using Times New Roman for classic, professional typography */
 
 :root {
-    /* Dark Blue-Black Color Palette */
-    --primary-blue: #3b82f6;
-    --primary-blue-dark: #1e40af;
-    --primary-blue-light: #60a5fa;
-    --secondary-blue: #1e3a8a;
-    --accent-blue: #06b6d4;
+    /* Ultra Dark Black-Blue Color Palette */
+    --primary-blue: #2563eb;
+    --primary-blue-dark: #1d4ed8;
+    --primary-blue-light: #3b82f6;
+    --secondary-blue: #1e40af;
+    --accent-blue: #0ea5e9;
     --accent-cyan: #0891b2;
     
-    --dark-bg: #0f172a;
-    --dark-surface: #1e293b;
-    --dark-surface-light: #334155;
-    --dark-border: #475569;
-    --dark-card: #1e293b;
+    --dark-bg: #000000;
+    --dark-surface: #0a0a0a;
+    --dark-surface-light: #1a1a1a;
+    --dark-border: #2a2a2a;
+    --dark-card: #111111;
     
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --text-muted: #94a3b8;
-    --text-accent: #60a5fa;
+    --text-primary: #ffffff;
+    --text-secondary: #e5e5e5;
+    --text-muted: #a3a3a3;
+    --text-accent: #3b82f6;
     
     --success: #10b981;
     --warning: #f59e0b;
     --error: #ef4444;
     
     /* Typography */
-    --font-primary: 'Inter', sans-serif;
+    --font-primary: 'Times New Roman', Times, serif;
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
     --font-size-base: 1rem;
@@ -60,7 +60,7 @@
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-    --shadow-blue: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+    --shadow-blue: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
 }
 
 /* Reset and Base Styles */
@@ -78,8 +78,11 @@ body {
     font-family: var(--font-primary);
     background: var(--dark-bg);
     color: var(--text-primary);
-    line-height: 1.6;
+    line-height: 1.7;
     overflow-x: hidden;
+    text-align: left;
+    font-size: var(--font-size-base);
+    letter-spacing: 0.02em;
 }
 
 .container {
@@ -94,7 +97,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(0, 0, 0, 0.95);
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--dark-border);
@@ -119,6 +122,8 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-align: left;
+    letter-spacing: 0.05em;
 }
 
 .nav-menu {
@@ -133,6 +138,9 @@ body {
     font-weight: 500;
     transition: var(--transition-fast);
     position: relative;
+    text-align: center;
+    letter-spacing: 0.02em;
+    padding: var(--spacing-sm) var(--spacing-md);
 }
 
 .nav-link:hover,
@@ -185,6 +193,9 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-align: center;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
 }
 
 .page-subtitle {
@@ -192,6 +203,9 @@ body {
     color: var(--text-muted);
     max-width: 600px;
     margin: 0 auto;
+    text-align: center;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
 }
 
 /* Hero Section */
@@ -212,9 +226,9 @@ body {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(30, 58, 138, 0.05) 0%, transparent 50%);
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(30, 64, 175, 0.08) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -236,8 +250,10 @@ body {
 .hero-title {
     font-size: var(--font-size-5xl);
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 1.2;
     margin-bottom: var(--spacing-lg);
+    text-align: left;
+    letter-spacing: 0.02em;
 }
 
 .highlight {
@@ -252,6 +268,9 @@ body {
     color: var(--text-secondary);
     margin-bottom: var(--spacing-lg);
     font-weight: 600;
+    text-align: left;
+    letter-spacing: 0.01em;
+    line-height: 1.4;
 }
 
 .hero-description {
@@ -259,6 +278,9 @@ body {
     color: var(--text-muted);
     margin-bottom: var(--spacing-2xl);
     max-width: 500px;
+    text-align: left;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
 }
 
 .hero-buttons {
@@ -270,6 +292,7 @@ body {
 .btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: var(--spacing-sm);
     padding: var(--spacing-md) var(--spacing-xl);
     border-radius: var(--radius-lg);
@@ -279,6 +302,9 @@ body {
     border: none;
     cursor: pointer;
     font-size: var(--font-size-base);
+    text-align: center;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
 }
 
 .btn-primary {
@@ -392,6 +418,9 @@ section {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-align: center;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
 }
 
 .section-subtitle {
@@ -399,6 +428,9 @@ section {
     color: var(--text-muted);
     max-width: 600px;
     margin: 0 auto;
+    text-align: center;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
 }
 
 /* Quick About Section */
@@ -417,6 +449,9 @@ section {
     font-size: var(--font-size-lg);
     color: var(--text-secondary);
     margin-bottom: var(--spacing-2xl);
+    text-align: left;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
 }
 
 .about-stats {
@@ -438,11 +473,17 @@ section {
     font-weight: 700;
     color: var(--primary-blue);
     margin-bottom: var(--spacing-sm);
+    text-align: center;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
 }
 
 .stat p {
     color: var(--text-muted);
     font-size: var(--font-size-sm);
+    text-align: center;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
 }
 
 /* Featured Projects */
@@ -533,12 +574,19 @@ section {
     font-size: var(--font-size-xl);
     margin-bottom: var(--spacing-md);
     color: var(--text-primary);
+    text-align: left;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+    font-weight: 600;
 }
 
 .project-content p {
     color: var(--text-secondary);
     margin-bottom: var(--spacing-lg);
     font-size: var(--font-size-sm);
+    text-align: left;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
 }
 
 .project-tech {
@@ -555,6 +603,9 @@ section {
     font-size: var(--font-size-xs);
     font-weight: 500;
     border: 1px solid var(--dark-border);
+    text-align: center;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
 }
 
 /* Skills Preview */
@@ -581,6 +632,9 @@ section {
     margin-bottom: var(--spacing-lg);
     color: var(--primary-blue);
     text-align: center;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+    font-weight: 600;
 }
 
 .skill-tags {
@@ -599,6 +653,9 @@ section {
     font-weight: 500;
     border: 1px solid var(--dark-border);
     transition: var(--transition-normal);
+    text-align: center;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
 }
 
 .skill-tag:hover {
@@ -1031,12 +1088,19 @@ section {
     font-size: var(--font-size-3xl);
     margin-bottom: var(--spacing-lg);
     color: var(--primary-blue);
+    text-align: left;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+    font-weight: 600;
 }
 
 .contact-info p {
     color: var(--text-secondary);
     margin-bottom: var(--spacing-2xl);
     font-size: var(--font-size-lg);
+    text-align: left;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
 }
 
 .contact-details {
@@ -1157,6 +1221,9 @@ section {
     color: var(--text-primary);
     font-weight: 500;
     margin-bottom: var(--spacing-sm);
+    text-align: left;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
 }
 
 .form-group input,
@@ -1168,13 +1235,17 @@ section {
     color: var(--text-primary);
     font-size: var(--font-size-base);
     transition: var(--transition-normal);
+    text-align: left;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+    font-family: var(--font-primary);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-blue);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 .form-group textarea {
@@ -1425,10 +1496,10 @@ section {
     --dark-border: #cbd5e1;
     --dark-card: #ffffff;
     
-    --text-primary: #1e293b;
-    --text-secondary: #475569;
-    --text-muted: #64748b;
-    --text-accent: #3b82f6;
+    --text-primary: #000000;
+    --text-secondary: #1a1a1a;
+    --text-muted: #4a4a4a;
+    --text-accent: #2563eb;
 }
 
 /* Theme Toggle */
@@ -1544,7 +1615,7 @@ section {
     left: 0;
     width: 100%;
     height: 4px;
-    background: rgba(59, 130, 246, 0.1);
+    background: rgba(37, 99, 235, 0.15);
     z-index: 1001;
 }
 
@@ -1579,9 +1650,9 @@ section {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(30, 58, 138, 0.08) 0%, transparent 50%);
+        radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(14, 165, 233, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(30, 64, 175, 0.1) 0%, transparent 50%);
     pointer-events: none;
     z-index: 1;
 }
@@ -1739,6 +1810,7 @@ section {
 /* Glassmorphism Effects */
 .glass-effect {
     background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -1757,7 +1829,7 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+    background: linear-gradient(45deg, transparent, rgba(37, 99, 235, 0.15), transparent);
     opacity: 0;
     transition: var(--transition-normal);
     z-index: 1;
@@ -1771,7 +1843,7 @@ section {
     transform: translateY(-10px) rotateX(5deg);
     box-shadow: 
         var(--shadow-2xl),
-        0 0 30px rgba(59, 130, 246, 0.3);
+        0 0 30px rgba(37, 99, 235, 0.4);
 }
 
 /* Enhanced Skill Bars */
